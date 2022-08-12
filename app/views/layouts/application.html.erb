@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>BookLover</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <header> 
+      <p>header左、ロゴ部分</p>
+    </header>
     <%= yield %>
+    <footer>
+      <p>copyright</p>
+    </footer>
+
   </body>
 </html>
