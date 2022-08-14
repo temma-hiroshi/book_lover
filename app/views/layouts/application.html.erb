@@ -12,13 +12,21 @@
   </head>
 
   <body>
-    <header> 
-      <p>header左、ロゴ部分</p>
+    <header>
+      <div class="header-left">
+        <h1 class="headerlogo"><%= link_to"BookLover", home_index_path %></h1>
+        <input type="search" class="search-book" placeholder="検索ワードを入力">
+      </div>
+
+      <div class="header-right">
+        <button class="btn btn-dark">ゲストログイン</button>
+        <button class="btn btn-primary">ログイン</button>
+        <button class="btn btn-secondary">新規登録</button>
+      </div>
     </header>
     <%= yield %>
     <footer>
-      <p>copyright</p>
+      <%= link_to "BookLover", home_index_path, class: "footerlogo" %>
     </footer>
-
   </body>
 </html>
