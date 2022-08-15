@@ -1,0 +1,38 @@
+version: 2.1
+jobs:
+  rspec:
+    working_directory: ~/app
+    docker:
+      - image: circleci/ruby
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 20.10.14
+      - run:
+          name: Setup environment variable
+          command: |
+            echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
+      - run:
+          name: Start containers and verify it is working
+          command: |
+            set -x
+            docker-compose up -d
+            docker exec app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+      - run:
+          name: Run rspec
+          command: docker-compose exec potepanec rspec
+
+  rubocop:
+    working_directory: ~/app
+    docker:
+      - image: circleci/ruby:2.7.3
+    steps:
+      - checkout
+      - run: bundle config --local path vendor/bundle
+      - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop --parallel
+
