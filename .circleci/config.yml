@@ -17,10 +17,10 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec book_lover_app_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+            docker exec app_app_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
       - run:
           name: Run rspec
-          command: docker-compose exec potepanec rspec
+          command: docker-compose exec app rspec
 
   rubocop:
     working_directory: ~/app
