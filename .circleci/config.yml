@@ -21,7 +21,8 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec app bash -c 'yes n | bundle exec rails db:create
+            docker-compose exec app bash
+            bundle exec rails db:create
       - run:
           name: Run rspec
           command: docker-compose exec app rspec
