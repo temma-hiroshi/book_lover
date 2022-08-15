@@ -17,7 +17,7 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+            docker exec book_lover_app_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
       - run:
           name: Run rspec
           command: docker-compose exec potepanec rspec
@@ -25,7 +25,7 @@ jobs:
   rubocop:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:2.7.3
+      - image: circleci/ruby:3.0.2
     steps:
       - checkout
       - run: bundle config --local path vendor/bundle
