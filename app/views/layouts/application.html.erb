@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>BookLover</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <header>
+      <div class="header-left">
+        <h1 class="headerlogo"><%= link_to"BookLover", home_index_path %></h1>
+        <input type="search" class="search-book" placeholder="検索ワードを入力">
+      </div>
+
+      <div class="header-right">
+        <button class="btn btn-dark">ゲストログイン</button>
+        <button class="btn btn-primary">ログイン</button>
+        <button class="btn btn-secondary">新規登録</button>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <%= link_to "BookLover", home_index_path, class: "footerlogo" %>
+    </footer>
   </body>
 </html>

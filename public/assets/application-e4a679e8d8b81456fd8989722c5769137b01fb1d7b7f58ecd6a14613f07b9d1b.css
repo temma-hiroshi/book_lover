@@ -1,0 +1,140 @@
+/* line 5, app/assets/stylesheets/home.scss */
+.main-content {
+  position: relative;
+  text-align: center;
+}
+
+/* line 9, app/assets/stylesheets/home.scss */
+.main-image {
+  margin-top: 50px;
+  width: 100%;
+}
+
+/* line 13, app/assets/stylesheets/home.scss */
+.main-image-word {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  font-size: 45px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* line 21, app/assets/stylesheets/home.scss */
+.about {
+  margin-top: 80px;
+  text-align: center;
+  background-color: #8fbc8f;
+  padding: 20px;
+}
+
+/* line 27, app/assets/stylesheets/home.scss */
+.about-title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* line 31, app/assets/stylesheets/home.scss */
+.about-description {
+  font-size: 28px;
+  padding: 20px 50px;
+  text-align: start;
+  line-height: 2;
+}
+
+/* line 37, app/assets/stylesheets/home.scss */
+.recommend {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* line 41, app/assets/stylesheets/home.scss */
+.recommend-title {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* line 46, app/assets/stylesheets/home.scss */
+.recommend-item-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 50, app/assets/stylesheets/home.scss */
+.recommend-item {
+  width: 45%;
+  margin: 15px 25px;
+  position: relative;
+}
+
+/* line 54, app/assets/stylesheets/home.scss */
+.recommend-item img {
+  width: 100%;
+}
+
+/* line 57, app/assets/stylesheets/home.scss */
+.recommend-item span {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  color: #000000;
+  font-weight: bold;
+  font-size: 28px;
+  background-color: #ffffff;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+header{
+  height:100px;
+  background-color: #f5f5dc;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.header-left{
+  display: flex;
+  justify-content: space-between;
+}
+.headerlogo{
+  margin:20px;
+}
+.headerlogo a{
+  text-decoration: none;
+  color: #000000;
+  font-size: 50px;
+}
+.header-right button{
+  margin: 20px 5px;
+}
+.search-book{
+  margin: 35px 20px;
+  height: 30px
+}
+footer{
+  margin-top: 30px;
+  background-color: #f5f5dc;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerlogo{
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+}
