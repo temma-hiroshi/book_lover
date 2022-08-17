@@ -33,7 +33,7 @@ header{
   color: #000000;
   font-size: 50px;
 }
-.header-right button{
+.header-right a{
   margin: 20px 5px;
 }
 .search-book{
