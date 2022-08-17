@@ -7,9 +7,9 @@
       <%= form.label :画像 %>
       <%= form.file_field :image %><br>
 
-      <%= form.submit "更新" %>
+      <%= form.submit "更新" %><br>
+      <%= link_to "トップページに戻る", home_index_path %>
     <% end %>
   </div>
 
-<%= @user.name %>
 </div>
