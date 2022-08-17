@@ -114,6 +114,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.16.2)
     msgpack (1.5.4)
@@ -292,6 +293,7 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mini_magick
   mysql2 (~> 0.5)
   nokogiri (~> 1.8)
   pry-rails
