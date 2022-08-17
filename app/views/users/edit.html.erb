@@ -1,8 +1,15 @@
-<p>users edit</p>
+<div class="container">
+  <div class="form-container">
+    <%= form_with model:@user do |form| %>
+      <%= form.label :名前 %>
+      <%= form.text_field :name %><br>
 
-<%= current_user.name %>
-<%= current_user.email %>
-test
+      <%= form.label :画像 %>
+      <%= form.file_field :image %><br>
 
-画像
-名前
+      <%= form.submit "更新" %>
+    <% end %>
+  </div>
+
+<%= @user.name %>
+</div>
