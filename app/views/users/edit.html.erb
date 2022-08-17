@@ -1,4 +1,7 @@
 <div class="container">
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image %>
+  <% end %>
   <div class="form-container">
     <%= form_with model:@user do |form| %>
       <%= form.label :名前 %>
