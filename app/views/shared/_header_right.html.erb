@@ -1,7 +1,7 @@
 <div class="header-right">
   <% if current_user %>
-    <%= link_to "パスワード編集", "#", class: 'btn btn-dark' %>
-    <%= link_to "名前、アイコン編集", "#", class: 'btn btn-dark' %>
+    <%= link_to "パスワード編集", edit_user_registration_path(current_user.id), class: 'btn btn-dark' %>
+    <%= link_to "名前、アイコン編集", edit_user_path(current_user.id), class: 'btn btn-dark' %>
     <%= link_to "本の登録", "#", class: 'btn btn-dark' %>
     <%= link_to "登録した本一覧", "#", class: 'btn btn-dark' %>
     <%= link_to "コメント一覧", "#", class: 'btn btn-dark' %>
