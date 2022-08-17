@@ -4,10 +4,10 @@
   <% end %>
   <div class="form-container">
     <%= form_with model:@user do |form| %>
-      <%= form.label :名前 %>
+      <%= form.label :name, "名前" %>
       <%= form.text_field :name %><br>
 
-      <%= form.label :画像 %>
+      <%= form.label :image, "画像" %>
       <%= form.file_field :image %><br>
 
       <%= form.submit "更新" %><br>
