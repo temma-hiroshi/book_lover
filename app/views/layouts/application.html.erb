@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-
   <body>
     <header>
-      <div class="header-left">
-        <h1 class="headerlogo"><%= link_to"BookLover", home_index_path %></h1>
-        <input type="search" class="search-book" placeholder="検索ワードを入力">
-      </div>
+      <%= render 'shared/header_left' %>
       <%= render 'shared/header_right' %>
     </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= render 'shared/notice_alert' %>
     <%= yield %>
     <footer>
       <%= link_to "BookLover", home_index_path, class: "footerlogo" %>
