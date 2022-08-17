@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.update(user_params)
+      binding.pry
       redirect_to home_index_path
     else
       render :edit
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.destroy
       redirect_to root_path, notice: "削除が完了しました"
     else
