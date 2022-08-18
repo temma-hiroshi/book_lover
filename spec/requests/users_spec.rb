@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "users", type: :request do
-  let(:user) {create(:user)}
+  let(:user) { create(:user) }
 
   describe "GET /users" do
     it "名前、アイコン編集画面で正常にレスポンスを返答すること" do

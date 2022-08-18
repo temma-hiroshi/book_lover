@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      binding.pry
       redirect_to home_index_path
     else
       render :edit
@@ -23,7 +22,8 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:name, :image)
-    end
+
+  def user_params
+    params.require(:user).permit(:name, :image)
+  end
 end
