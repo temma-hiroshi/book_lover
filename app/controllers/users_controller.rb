@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit]
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -12,8 +13,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "更新が完了しました。"
       redirect_to home_index_path
     else
+      flash[:alert] = "更新が失敗しました。"
       render :edit
     end
   end
@@ -21,9 +24,11 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      redirect_to root_path, notice: "削除が完了しました"
+      flash[:notice] = "削除が完了しました。"
+      redirect_to root_path
     else
-      redirect_to root_path, alert: "削除が失敗しました"
+      flash[:alert] = "削除が失敗しました。"
+      redirect_to root_path
     end
   end
 
