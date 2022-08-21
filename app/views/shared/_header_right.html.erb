@@ -7,7 +7,6 @@
     <%= link_to "登録した本一覧", "#", class: 'btn btn-dark' %>
     <%= link_to "コメント一覧", "#", class: 'btn btn-dark' %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-dark' %>
-    <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, class: 'btn btn-danger', data: {confirm: "本当にアカウントを削除してよろしいですか？" } %>
   <% else %>
     <%= link_to "ゲストログイン", "#", class: 'btn btn-dark' %>
     <%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary' %>

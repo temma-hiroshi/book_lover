@@ -11,6 +11,9 @@
       <%= form.file_field :image %><br>
 
       <%= form.submit "更新" %><br>
+      <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, 
+          class: 'btn btn-danger', data: {confirm: "本当にアカウントを削除してよろしいですか？" } %></br>
+
       <%= link_to "トップページに戻る", home_index_path %>
     <% end %>
   </div>
