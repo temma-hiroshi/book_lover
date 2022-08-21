@@ -7,19 +7,23 @@ RSpec.describe "UserのE2Eテスト", type: :system do
 
     it "新規登録を実行すること" do
       visit new_user_registration_path
-      fill_in "Name", with: signup_user.name
-      fill_in "Email", with: signup_user.email
-      fill_in "Password", with: signup_user.password
-      fill_in "Password confirmation", with: signup_user.password_confirmation
-      click_on 'Sign up'
+      within ".container" do
+        fill_in "名前", with: signup_user.name
+        fill_in "メールアドレス", with: signup_user.email
+        fill_in "パスワード(6文字以上)", with: signup_user.password
+        fill_in "パスワード(確認用)", with: signup_user.password_confirmation
+        click_on '新規登録'
+      end
       expect(User.all.count).to eq 1
     end
 
     it "ログイン、ログアウトを実行すること" do
       visit new_user_session_path
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
-      click_on 'Log in'
+      within ".container" do
+        fill_in "メールアドレス", with: user.email
+        fill_in "パスワード", with: user.password
+        click_on 'ログイン'
+      end
       expect(current_path).to eq(root_path)
       expect(page).to have_content("Signed in successfully.")
       click_on "ログアウト"
