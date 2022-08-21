@@ -25,10 +25,10 @@ RSpec.describe "UserのE2Eテスト", type: :system do
         click_on 'ログイン'
       end
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("Signed in successfully.")
+      expect(page).to have_content("ログインしました。")
       click_on "ログアウト"
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("Signed out successfully")
+      expect(page).to have_content("ログアウトしました。")
     end
   end
 end
