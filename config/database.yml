@@ -50,7 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: db
-  username: root
-  password: password
-  host: db
+  database: app_production
