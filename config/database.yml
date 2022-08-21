@@ -50,4 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: app_production
+  url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
