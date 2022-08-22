@@ -2,16 +2,17 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!, only: [:show, :edit]
 
+  # params[:id]では、ログインした本人以外の情報を使用できてしまうため
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if @user.update(user_params)
       flash[:notice] = "更新が完了しました。"
       redirect_to home_index_path
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if @user.destroy
       flash[:notice] = "削除が完了しました。"
       redirect_to root_path
