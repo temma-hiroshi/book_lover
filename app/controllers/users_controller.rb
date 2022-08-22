@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!, only: [:show, :edit]
 
   # params[:id]では、ログインした本人以外の情報を使用できてしまうため
