@@ -1,0 +1,5 @@
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image, class: "rounded-circle" %>
+  <% else %>
+    <%= image_tag "noimage.jpg", class: "rounded-circle" %>
+  <% end %>

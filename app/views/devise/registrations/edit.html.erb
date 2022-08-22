@@ -1,0 +1,38 @@
+<div class="container bg-light">
+  <div class="text-center mt-5 pt-5 pb-5">
+    <h2>パスワード編集</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス", class: "mb-2 input-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-3 mb-2" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, "パスワード(6文字以上)", class: "mb-2 input-label" %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "col-3 mb-2" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "パスワード(確認用)", class: "mb-2 input-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-3 mb-2" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, "現在のパスワード(パスワードの変更に必要です)", class: "mb-2 input-label" %><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "col-3 mb-2" %>
+      </div>
+
+      <div class="actions">
+          <%= f.submit "パスワード更新", class: "mt-5 mb-5 col-2 btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <%= link_to "トップページに戻る", home_index_path %>
+  </div>
+</div>

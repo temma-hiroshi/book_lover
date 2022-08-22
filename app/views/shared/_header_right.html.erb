@@ -1,0 +1,15 @@
+<div class="header-right">
+  <% if current_user %>
+    <%= current_user.name %>
+    <%= render "shared/user_icon" %>
+    <%= link_to "パスワード編集", edit_user_registration_path(current_user.id), class: 'btn btn-dark' %>
+    <%= link_to "名前、アイコン編集", edit_user_path(current_user.id), class: 'btn btn-dark' %>
+    <%= link_to "本の登録", "#", class: 'btn btn-dark' %>
+    <%= link_to "ユーザー情報", user_path(current_user.id), class: 'btn btn-dark' %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-dark' %>
+  <% else %>
+    <%= link_to "ゲストログイン", "#", class: 'btn btn-dark' %>
+    <%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-secondary' %>
+  <% end %>
+</div>

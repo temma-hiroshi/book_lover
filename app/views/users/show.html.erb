@@ -1,0 +1,27 @@
+<div class="container user-container text-center my-5">
+  <div class="my-5 border border-2 bg-light py-4">
+    <h2 class="mt-4">ユーザー情報</h2>
+    <%= render "shared/user_icon" %>
+    <%= form_with model:@user do |form| %>
+      <%= form.label :name, "名前", class: "col-1 mt-5 mb-4" %>
+      <%= form.text_field :name, class: "col-2 mt-5 mb-4", disabled: true %><br>
+    <% end %>
+    <%= link_to "名前、アイコン編集", user_path(current_user.id), class: "btn btn-primary" %><br>
+    <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary my-3" %>
+  </div>
+
+  <div class="book-container bg-light border border-2 my-5 py-4">
+  <h2>登録した本の一覧</h2>
+  写真<br>
+  タイトル<br>
+  説明文<br>
+  全体にリンク貼る<br>
+  </div>
+
+  <div class="comment-container bg-light border border-2 my-5 py-4">
+  <h2>投稿したコメント一覧</h2><br>
+  本のタイトル<br>
+  コメント<br>
+  全体にリンク、本の<br>
+  </div>
+</div>
