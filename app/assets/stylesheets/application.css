@@ -36,6 +36,11 @@ header{
 .header-right a{
   margin: 20px 5px;
 }
+.header-right img{
+  margin-top: 5px;
+  height: 90px;
+  width: 90px;
+}
 .search-book{
   margin: 35px 20px;
   height: 30px
