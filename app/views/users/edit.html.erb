@@ -10,8 +10,8 @@
 
       <%= form.submit "更新", class: "btn btn-success col-2 mb-4" %><br>
       <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, 
-          class: 'btn btn-danger col-2 mb-5', data: {confirm: "本当にアカウントを削除してよろしいですか？" } %></br>
+          class: 'btn btn-danger col-2 mb-5', data: {confirm: "本当にアカウントを削除してよろしいですか？" } %><br>
     <% end %>
-    <%= link_to "トップページに戻る", home_index_path, class: "mt-5" %>
+    <%= link_to "トップページに戻る", home_index_path %>
   </div>
 </div>
