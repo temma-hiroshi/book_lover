@@ -1,1 +1,30 @@
-show
+<div class="container my-5">
+  <div class="my-5 border border-2 bg-light py-4">
+    <h2 class="mt-4 text-center">本の情報</h2>
+    <div class="d-flex">
+      <%= render "shared/book_icon" %>
+      <div class="col-4 my-5">
+        <div class="mb-5 py-3 px-5 border border-1 bg-white">
+          <h3>タイトル</h3>
+          <p class="book-element"><%= @book.title %></p>
+          <h3>著者</h3>
+          <p class="book-element"><%= @book.author %></p>
+          <h3>説明文</h3>
+          <p class="book-element"><%= @book.description %></p>
+        </div>
+        <div class="mb-5 py-3 px-5 border border-1 bg-white">
+          <h4>本の登録者</h4>
+          <p class="book-user"><%= @book.user.name %></p>
+        </div>
+        本人のみ、編集と削除のリンクも作成
+        <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary my-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-5 border border-2 bg-light py-4">
+    <p>コメント一覧</p>
+    投稿者
+    コメント
+  </div>
+</div>
