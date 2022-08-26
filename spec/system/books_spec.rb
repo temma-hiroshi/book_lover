@@ -4,7 +4,7 @@ RSpec.describe "BookのE2Eテスト", type: :system do
   describe "view/booksのテスト" do
     let(:user) { create(:user) }
     let(:another_user) { create(:user, name: "another_user", email: "anotheruser@another.jp") }
-    let(:book) { create(:book, user_id: user.id) }
+    let!(:book) { create(:book, user_id: user.id) }
 
     describe "詳細ページのテスト" do
       before do
@@ -81,5 +81,50 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(page).to have_content("本の情報を更新できませんでした。")
       end
     end
+
+    describe "検索フォームのテスト" do
+      before do
+        visit root_path
+      end
+
+      it "検索ワードがタイトルを含むとき、本の情報を表示すること" do
+        fill_in "q[title_or_author_or_description_cont]", with: "title"
+        click_on '検索'
+        expect(current_path).to eq search_books_path
+        expect(page).to have_content(book.title)
+        expect(page).to have_content(book.author)
+        expect(page).to have_content(book.description)
+      end
+
+      it "検索ワードが著者を含むとき、本の情報を表示すること" do
+        fill_in "q[title_or_author_or_description_cont]", with: "author"
+        click_on '検索'
+        expect(current_path).to eq search_books_path
+        expect(page).to have_content(book.title)
+        expect(page).to have_content(book.author)
+        expect(page).to have_content(book.description)
+      end
+
+      it "検索ワードが説明文を含むとき、本の情報を表示すること" do
+        fill_in "q[title_or_author_or_description_cont]", with: "author"
+        click_on '検索'
+        expect(current_path).to eq search_books_path
+        expect(page).to have_content(book.title)
+        expect(page).to have_content(book.author)
+        expect(page).to have_content(book.description)
+      end
+
+      it "検索ワードがタイトル、著者、説明文を含まないとき、本の情報を表示しないこと" do
+        fill_in "q[title_or_author_or_description_cont]", with: "foobar"
+        click_on '検索'
+        expect(current_path).to eq search_books_path
+        expect(page).not_to have_content(book.title)
+        expect(page).not_to have_content(book.author)
+        expect(page).not_to have_content(book.description)
+      end
+
+
+    end
+
   end
 end
