@@ -6,7 +6,6 @@ RSpec.describe "UserのE2Eテスト", type: :system do
     let(:user) { create(:user) }
     let!(:book) { create(:book, user_id: user.id) }
 
-
     it "新規登録を実行すること" do
       visit new_user_registration_path
       within ".container" do
@@ -19,16 +18,22 @@ RSpec.describe "UserのE2Eテスト", type: :system do
       expect(User.all.count).to eq 1
     end
 
+    it "ログインを実行すること" do
+      visit new_user_session_path
+      within ".container" do
+        fill_in "メールアドレス", with: user.email
+        fill_in "パスワード", with: user.password
+        click_on 'ログイン'
+      end
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("ログインしました。")
+    end
+
     describe "ログイン後のテスト" do
       before do
-        visit new_user_session_path
-        within ".container" do
-          fill_in "メールアドレス", with: user.email
-          fill_in "パスワード", with: user.password
-          click_on 'ログイン'
-        end
+        sign_in user
       end
-    
+
       it "ログアウトを実行すること" do
         visit root_path
         click_on "ログアウト"

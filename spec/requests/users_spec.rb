@@ -15,7 +15,7 @@ RSpec.describe "users", type: :request do
     end
 
     it "ユーザーを削除すること" do
-      expect{user.destroy}.to change{User.count}.from(1).to(0)
+      expect { user.destroy }.to change { User.count }.from(1).to(0)
     end
 
     describe "ログイン時のテスト" do

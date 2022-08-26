@@ -26,7 +26,7 @@ RSpec.describe "Books", type: :request do
       end
 
       it "ユーザーを削除したとき、本を削除すること" do
-        expect{user.destroy}.to change{Book.count}.from(1).to(0)
+        expect { user.destroy }.to change { Book.count }.from(1).to(0)
       end
     end
   end

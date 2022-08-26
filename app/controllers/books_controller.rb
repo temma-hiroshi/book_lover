@@ -22,24 +22,34 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "本の情報を更新しました。"
+      redirect_to book_path(@book.id)
+    else
+      flash.now[:alert] = "本の情報を更新できませんでした。"
+      render :edit
+    end
   end
 
   def destroy
     @book = Book.find(params[:id])
     @user = @book.user
     if @book.destroy
-      flash[:notice] = "削除が完了しました。"
+      flash[:notice] = "本を削除しました。"
       redirect_to user_path(@user.id)
     else
-      flash[:alert] = "削除が失敗しました。"
+      flash[:alert] = "本を削除できませんでした。"
       redirect_to user_path(@user.id)
     end
   end
 
   private
+
   def book_params
     params.require(:book).permit(:title, :author, :description, :user_id, :image)
   end
