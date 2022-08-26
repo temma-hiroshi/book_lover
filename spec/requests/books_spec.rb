@@ -25,9 +25,9 @@ RSpec.describe "Books", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      # it "ユーザーを削除したとき、本を削除すること" do
-      #   expect{user.destroy}.to change{Book.count}.from(1).to(0)
-      # end
+      it "ユーザーを削除したとき、本を削除すること" do
+        expect{user.destroy}.to change{Book.count}.from(1).to(0)
+      end
     end
   end
 end

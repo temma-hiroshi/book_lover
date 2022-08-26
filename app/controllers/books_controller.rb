@@ -28,6 +28,15 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    @user = @book.user
+    if @book.destroy
+      flash[:notice] = "削除が完了しました。"
+      redirect_to user_path(@user.id)
+    else
+      flash[:alert] = "削除が失敗しました。"
+      redirect_to user_path(@user.id)
+    end
   end
 
   private
