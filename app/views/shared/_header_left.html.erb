@@ -1,4 +1,7 @@
 <div class="header-left">
   <h1 class="headerlogo"><%= link_to"BookLover", home_index_path %></h1>
-  <input type="search" class="search-book" placeholder="検索ワードを入力">
+  <%= search_form_for @search, url: search_books_path do |f| %>
+    <%= f.search_field :title_or_author_or_description_cont, placeholder: "本を検索", class: "search-book" %>
+    <%= f.submit "検索" %>
+  <% end %>
 </div>
