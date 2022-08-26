@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "users", type: :request do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   describe "GET /users" do
     it "ログイン画面で正常にレスポンスを返答すること" do
@@ -12,6 +12,10 @@ RSpec.describe "users", type: :request do
     it "新規登録画面で正常にレスポンスを返答すること" do
       get new_user_registration_path
       expect(response).to have_http_status(200)
+    end
+
+    it "ユーザーを削除すること" do
+      expect{user.destroy}.to change{User.count}.from(1).to(0)
     end
 
     describe "ログイン時のテスト" do

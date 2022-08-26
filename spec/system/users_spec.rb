@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "UserのE2Eテスト", type: :system do
-  describe "GET /home" do
+  describe "ユーザーページのテスト" do
     let(:signup_user) { build(:user) }
     let(:user) { create(:user) }
+    let!(:book) { create(:book, user_id: user.id) }
+
 
     it "新規登録を実行すること" do
       visit new_user_registration_path
@@ -17,18 +19,39 @@ RSpec.describe "UserのE2Eテスト", type: :system do
       expect(User.all.count).to eq 1
     end
 
-    it "ログイン、ログアウトを実行すること" do
-      visit new_user_session_path
-      within ".container" do
-        fill_in "メールアドレス", with: user.email
-        fill_in "パスワード", with: user.password
-        click_on 'ログイン'
+    describe "ログイン後のテスト" do
+      before do
+        visit new_user_session_path
+        within ".container" do
+          fill_in "メールアドレス", with: user.email
+          fill_in "パスワード", with: user.password
+          click_on 'ログイン'
+        end
       end
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content("ログインしました。")
-      click_on "ログアウト"
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content("ログアウトしました。")
+    
+      it "ログアウトを実行すること" do
+        visit root_path
+        click_on "ログアウト"
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("ログアウトしました。")
+      end
+
+      it "ユーザー詳細画面で本の情報を表示すること" do
+        visit user_path(user.id)
+        within ".book-container" do
+          expect(page).to have_content(book.title)
+          expect(page).to have_content(book.author)
+          expect(page).to have_content(book.description)
+        end
+      end
+
+      it "ユーザー詳細画面の本のリンクが機能すること" do
+        visit user_path(user.id)
+        within ".book-container" do
+          click_on book.title
+        end
+        expect(current_path).to eq(book_path(book.id))
+      end
     end
   end
 end
