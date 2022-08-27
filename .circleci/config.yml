@@ -29,7 +29,7 @@ jobs:
   rubocop:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:3.0.2
+      - image: circleci/ruby:3.1.2
     steps:
       - checkout
       - run: bundle config --local path vendor/bundle
@@ -81,7 +81,4 @@ workflows:
     jobs:
       - rspec
       - rubocop
-      - heroku_deploy:
-          requires:
-            - rspec
-            - rubocop
+      - heroku_deploy
