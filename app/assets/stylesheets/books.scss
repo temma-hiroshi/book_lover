@@ -24,10 +24,17 @@
 .search-book-table{
   width: 100%;
   border: 1px #000000 solid;
-  th, tr, td{
-    border: 1px #000000 solid;
+  thead{
+    th, tr, td{
+      border: 1px #000000 solid;
+    }
   }
-  img{
-    width: 200px;
+  tbody{
+    th, tr, td{
+      border: 1px #000000 solid;
+      img{
+        width: 200px;
+        }
+    }
   }
 }

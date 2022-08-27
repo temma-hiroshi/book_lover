@@ -13,17 +13,17 @@
     <tbody>
       <% @results.each do |result| %>
         <tr>
-          <td>
+          <td class="col-2">
             <% if result.image.attached? %>
               <%= link_to image_tag(result.image, class: "p-3"), book_path(result.id) %>
             <% else %>
               <%= link_to image_tag("noimage-book.jpg", class: "p-3"), book_path(result.id)%>
             <% end %>
           </td>
-          <td><%= link_to(result.title, book_path(result.id)) %></td>
-          <td><%= result.author %></td>
-          <td><%= result.description %></td>
-          <td><%= result.user.name %></td>
+          <td class="col-2"><%= link_to(result.title, book_path(result.id)) %></td>
+          <td class="col-2"><%= result.author %></td>
+          <td class="col-2"><%= result.description %></td>
+          <td class="col-1"><%= result.user.name %></td>
         </tr>
       <% end %>
     </tbody>
