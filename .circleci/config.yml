@@ -29,7 +29,7 @@ jobs:
   rubocop:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:3.1.2
+      - image: circleci/ruby
     steps:
       - checkout
       - run: bundle config --local path vendor/bundle
@@ -59,7 +59,7 @@ jobs:
           command: for app_name in $APP_NAMES_TO_REMOVE; do heroku apps:destroy -a $app_name -c $app_name; done
       - run:
           name: Define Heroku app name to create
-          command: echo "export HEROKU_APP_NAME=portfolio-temma" >> $BASH_ENV
+          command: echo "export HEROKU_APP_NAME=portfolio-temma-app" >> $BASH_ENV
       - run:
           name: Create fresh Heroku app
           command: heroku apps:create $HEROKU_APP_NAME --addons=jawsdb:kitefin
