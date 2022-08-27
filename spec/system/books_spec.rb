@@ -87,7 +87,7 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         visit root_path
       end
 
-      it "検索ワードがタイトルを含むとき、本の情報を表示すること" do
+      it "検索ワードにタイトルを含むとき、本の情報を表示すること" do
         fill_in "q[title_or_author_or_description_cont]", with: "title"
         click_on '検索'
         expect(current_path).to eq search_books_path
@@ -96,7 +96,7 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(page).to have_content(book.description)
       end
 
-      it "検索ワードが著者を含むとき、本の情報を表示すること" do
+      it "検索ワードに著者を含むとき、本の情報を表示すること" do
         fill_in "q[title_or_author_or_description_cont]", with: "author"
         click_on '検索'
         expect(current_path).to eq search_books_path
@@ -105,8 +105,8 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(page).to have_content(book.description)
       end
 
-      it "検索ワードが説明文を含むとき、本の情報を表示すること" do
-        fill_in "q[title_or_author_or_description_cont]", with: "author"
+      it "検索ワードに説明文を含むとき、本の情報を表示すること" do
+        fill_in "q[title_or_author_or_description_cont]", with: "description"
         click_on '検索'
         expect(current_path).to eq search_books_path
         expect(page).to have_content(book.title)
@@ -114,7 +114,7 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(page).to have_content(book.description)
       end
 
-      it "検索ワードがタイトル、著者、説明文を含まないとき、本の情報を表示しないこと" do
+      it "検索ワードにタイトル、著者、説明文を含まないとき、本の情報を表示しないこと" do
         fill_in "q[title_or_author_or_description_cont]", with: "foobar"
         click_on '検索'
         expect(current_path).to eq search_books_path
@@ -122,9 +122,6 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(page).not_to have_content(book.author)
         expect(page).not_to have_content(book.description)
       end
-
-
     end
-
   end
 end

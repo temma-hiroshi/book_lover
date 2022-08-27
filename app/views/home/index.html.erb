@@ -3,33 +3,31 @@
     <%= image_tag "main-image.jpg", class: "main-image" %>
     <span class="main-image-word">あなたの好きを、誰かの好きに。</span>
   </div>
- 
   <div class="about">
     <h2 class="about-title">BookLoverとは?</h2>
     <p class="about-description">
-    あなたのおすすめの一冊を共有しましょう。
-    ビジネス、小説、お金の本など、何でもあります。どんどん登録しましょう。とりあえず文字数を増やして
-    レイアウト調整するから、文章は後で考える。４行から５行くらいを意識。もう少し文章量が必要。
-    おすすめ本をたくさん紹介する感じと同時に、何でも気軽に検索して人のおすすめを読めますよ、的な幹事を意識。</p>
+    BookLoverは好きな本を共有できるサイトです。「自分の好きな本を伝えたい」「他の人がどんな本を好きなのか知りたい」という
+    想いを実現するため作成しました。<br>
+    あなたも好きな本を登録してみませんか。
+    </p>
   </div>
-
    <div class="recommend">
     <h2 class="recommend-title">おすすめジャンル</h2>
     <div class="recommend-item-list">
       <div class="recommend-item col-12 col-lg-5">
-        <%= image_tag "recommend-nobel.jpg" %>
+        <%= link_to (image_tag "recommend-nobel.jpg", alt: "小説"), search_books_path(q: {title_or_author_or_description_cont: "小説"}) %>
         <span>小説</span>
       </div>
       <div class="recommend-item col-12 col-lg-5">
-        <%= image_tag "recommend-business.jpg" %>
+        <%= link_to (image_tag "recommend-business.jpg", alt: "ビジネス"), search_books_path(q: {title_or_author_or_description_cont: "ビジネス"}) %>
         <span>ビジネス</span>
       </div>
       <div class="recommend-item col-12 col-lg-5">
-        <%= image_tag "recommend-health.jpg" %>
+        <%= link_to (image_tag "recommend-health.jpg", alt: "健康"), search_books_path(q: {title_or_author_or_description_cont: "健康"}) %>
         <span>健康</span>
       </div>
       <div class="recommend-item col-12 col-lg-5">
-        <%= image_tag "recommend-money.jpg" %>
+        <%= link_to (image_tag "recommend-money.jpg", alt: "お金"), search_books_path(q: {title_or_author_or_description_cont: "お金"}) %>
         <span>お金</span>
       </div>
     </div>
