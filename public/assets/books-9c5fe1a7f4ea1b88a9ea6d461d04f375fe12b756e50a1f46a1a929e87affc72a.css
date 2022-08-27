@@ -1,0 +1,48 @@
+/* line 6, app/assets/stylesheets/books.scss */
+.text-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 11, app/assets/stylesheets/books.scss */
+.text-area-input {
+  height: 150px;
+}
+
+/* line 14, app/assets/stylesheets/books.scss */
+.book-element {
+  font-size: 24px;
+}
+
+/* line 17, app/assets/stylesheets/books.scss */
+.book-user {
+  font-size: 20px;
+}
+
+/* line 20, app/assets/stylesheets/books.scss */
+.book-edit-container img {
+  width: 400px;
+  height: auto;
+}
+
+/* line 24, app/assets/stylesheets/books.scss */
+.search-book-table {
+  width: 100%;
+  border: 1px #000000 solid;
+}
+
+/* line 28, app/assets/stylesheets/books.scss */
+.search-book-table thead th, .search-book-table thead tr, .search-book-table thead td {
+  border: 1px #000000 solid;
+}
+
+/* line 33, app/assets/stylesheets/books.scss */
+.search-book-table tbody th, .search-book-table tbody tr, .search-book-table tbody td {
+  border: 1px #000000 solid;
+}
+
+/* line 35, app/assets/stylesheets/books.scss */
+.search-book-table tbody th img, .search-book-table tbody tr img, .search-book-table tbody td img {
+  width: 200px;
+}

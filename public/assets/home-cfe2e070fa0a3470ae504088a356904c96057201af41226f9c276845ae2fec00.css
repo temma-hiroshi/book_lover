@@ -1,0 +1,84 @@
+/* line 5, app/assets/stylesheets/home.scss */
+.main-content {
+  position: relative;
+  text-align: center;
+}
+
+/* line 9, app/assets/stylesheets/home.scss */
+.main-image {
+  margin-top: 50px;
+  width: 100%;
+}
+
+/* line 13, app/assets/stylesheets/home.scss */
+.main-image-word {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  font-size: 45px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* line 21, app/assets/stylesheets/home.scss */
+.about {
+  margin-top: 80px;
+  text-align: center;
+  background-color: #8fbc8f;
+  padding: 20px;
+}
+
+/* line 27, app/assets/stylesheets/home.scss */
+.about-title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* line 31, app/assets/stylesheets/home.scss */
+.about-description {
+  font-size: 28px;
+  padding: 20px 50px;
+  text-align: start;
+  line-height: 2;
+}
+
+/* line 37, app/assets/stylesheets/home.scss */
+.recommend {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* line 41, app/assets/stylesheets/home.scss */
+.recommend-title {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* line 46, app/assets/stylesheets/home.scss */
+.recommend-item-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 50, app/assets/stylesheets/home.scss */
+.recommend-item {
+  margin: 15px 25px;
+  position: relative;
+}
+
+/* line 53, app/assets/stylesheets/home.scss */
+.recommend-item img {
+  width: 100%;
+}
+
+/* line 56, app/assets/stylesheets/home.scss */
+.recommend-item span {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  color: #000000;
+  font-weight: bold;
+  font-size: 28px;
+  background-color: #ffffff;
+}
