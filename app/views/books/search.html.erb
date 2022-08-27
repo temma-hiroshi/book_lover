@@ -1,27 +1,31 @@
 <div class="container text-center bg-light border border-2 my-5 p-5">
   <h2>検索結果：<%= @results.size %>件</h2>
   <table class="search-book-table">
-    <tr>
-      <th class="col-2">写真</th>
-      <th class="col-2">タイトル</th>
-      <th class="col-2">著者</th>
-      <th class="col-2">説明文</th>
-      <th class="col-1">登録ユーザー名</th><br>
-    </tr>
-    <% @results.each do |result| %>
+    <thead>
       <tr>
-        <td>
-          <% if result.image.attached? %>
-            <%= link_to image_tag(result.image, class: "p-3"), book_path(result.id) %>
-          <% else %>
-            <%= link_to image_tag("noimage-book.jpg", class: "p-3"), book_path(result.id)%>
-          <% end %>
-        </td>
-        <td><%= link_to(result.title, book_path(result.id)) %></td>
-        <td><%= result.author %></td>
-        <td><%= result.description %></td>
-        <td><%= result.user.name %></td>
+        <th class="col-2">写真</th>
+        <th class="col-2">タイトル</th>
+        <th class="col-2">著者</th>
+        <th class="col-2">説明文</th>
+        <th class="col-1">登録ユーザー名</th><br>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+        <tr>
+          <td>
+            <% if result.image.attached? %>
+              <%= link_to image_tag(result.image, class: "p-3"), book_path(result.id) %>
+            <% else %>
+              <%= link_to image_tag("noimage-book.jpg", class: "p-3"), book_path(result.id)%>
+            <% end %>
+          </td>
+          <td><%= link_to(result.title, book_path(result.id)) %></td>
+          <td><%= result.author %></td>
+          <td><%= result.description %></td>
+          <td><%= result.user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
