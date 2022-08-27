@@ -1,0 +1,36 @@
+/* line 5, app/assets/stylesheets/users.scss */
+.input-label {
+  font-size: 20px;
+}
+
+/* line 8, app/assets/stylesheets/users.scss */
+#error_explanation li {
+  list-style: none;
+}
+
+/* line 11, app/assets/stylesheets/users.scss */
+.user-container img {
+  width: 200px;
+  height: 200px;
+}
+
+/* line 15, app/assets/stylesheets/users.scss */
+.user-book-table {
+  width: 100%;
+  border: 1px #000000 solid;
+}
+
+/* line 19, app/assets/stylesheets/users.scss */
+.user-book-table thead th, .user-book-table thead tr, .user-book-table thead td {
+  border: 1px #000000 solid;
+}
+
+/* line 24, app/assets/stylesheets/users.scss */
+.user-book-table tbody th, .user-book-table tbody tr, .user-book-table tbody td {
+  border: 1px #000000 solid;
+}
+
+/* line 26, app/assets/stylesheets/users.scss */
+.user-book-table tbody th img, .user-book-table tbody tr img, .user-book-table tbody td img {
+  width: 200px;
+}

@@ -13,10 +13,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(current_user.id)
     if @user.update(user_params)
-      flash[:notice] = "更新が完了しました。"
+      flash[:notice] = "ユーザー情報を更新しました。"
       redirect_to home_index_path
     else
-      flash[:alert] = "更新が失敗しました。"
+      flash.now[:alert] = "ユーザー情報を更新できませんでした。"
       render :edit
     end
   end
@@ -24,10 +24,10 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(current_user.id)
     if @user.destroy
-      flash[:notice] = "削除が完了しました。"
+      flash[:notice] = "ユーザーを削除しました。"
       redirect_to root_path
     else
-      flash[:alert] = "削除が失敗しました。"
+      flash[:alert] = "ユーザーを削除できませんでした。"
       redirect_to root_path
     end
   end

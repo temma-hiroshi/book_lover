@@ -6,3 +6,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認用)
+      book:
+        title: タイトル
+        author: 著者
+        description: 説明文

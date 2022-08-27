@@ -10,12 +10,38 @@
     <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary my-3" %>
   </div>
 
-  <div class="book-container bg-light border border-2 my-5 py-4">
-  <h2>登録した本の一覧</h2>
-  写真<br>
-  タイトル<br>
-  説明文<br>
-  全体にリンク貼る<br>
+  <div class="book-container bg-light border border-2 my-5 p-5">
+    <h2>登録した本の一覧</h2>
+    <table class="user-book-table">
+      <thead>
+        <tr>
+          <th class="col-2">写真</th>
+          <th class="col-2">タイトル</th>
+          <th class="col-2">著者</th>
+          <th class="col-2">説明文</th>
+          <th class="col-1">編集</th>
+          <th class="col-1">削除</th><br>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.books.each do |user_book| %>
+          <tr>
+            <td>
+              <% if user_book.image.attached? %>
+                <%= link_to image_tag(user_book.image, class: "p-3"), book_path(user_book.id) %>
+              <% else %>
+                <%= link_to image_tag("noimage-book.jpg", class: "p-3"), book_path(user_book.id)%>
+              <% end %>
+            </td>
+            <td><%= link_to(user_book.title, book_path(user_book.id)) %></td>
+            <td><%= user_book.author %></td>
+            <td><%= user_book.description %></td>
+            <td><%= link_to "編集", edit_book_path(user_book.id) %></td>
+            <td><%= link_to "削除", book_path(user_book.id), method: :delete, data: {confirm: "本当に本を削除してよろしいですか？" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 
   <div class="comment-container bg-light border border-2 my-5 py-4">

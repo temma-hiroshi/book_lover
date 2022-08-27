@@ -1,0 +1,40 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.text-area{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-area-input{
+  height: 150px;
+}
+.book-element{
+  font-size: 24px;
+}
+.book-user{
+  font-size: 20px;
+}
+.book-edit-container img{
+  width: 400px;
+  height: auto;
+}
+.search-book-table{
+  width: 100%;
+  border: 1px #000000 solid;
+  thead{
+    th, tr, td{
+      border: 1px #000000 solid;
+    }
+  }
+  tbody{
+    th, tr, td{
+      border: 1px #000000 solid;
+      img{
+        width: 200px;
+        }
+    }
+  }
+}

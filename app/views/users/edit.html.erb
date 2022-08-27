@@ -1,4 +1,5 @@
-<div class="container user-container text-center mt-5 bg-light">
+<div class="container user-container text-center mt-5 bg-light border border-2">
+  <h2 class="pt-4">名前、アイコン編集</h2>
   <%= render "shared/user_icon" %>
   <div class="form-container mb-5 pb-5">
     <%= form_with model:@user do |form| %>
@@ -12,6 +13,6 @@
       <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, 
           class: 'btn btn-danger col-2 mb-5', data: {confirm: "本当にアカウントを削除してよろしいですか？" } %><br>
     <% end %>
-    <%= link_to "トップページに戻る", home_index_path %>
+    <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary col-2" %>
   </div>
 </div>
