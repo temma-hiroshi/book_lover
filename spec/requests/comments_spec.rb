@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Comments", type: :request do
-  describe "GET /create" do
+  describe "GET /comments" do
     let!(:user) { create(:user) }
     let!(:book) { create(:book, user_id: user.id) }
     let!(:comment) { create(:comment, user_id: user.id, book_id: book.id) }

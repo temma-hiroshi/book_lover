@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Books", type: :request do
-  describe "bookのテスト" do
+  describe "GET / books" do
     let!(:user) { create(:user) }
     let!(:book) { create(:book, user_id: user.id) }
 

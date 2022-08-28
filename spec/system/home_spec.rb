@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Home", type: :system do
-  describe "GET /home" do
+RSpec.describe "HomeのE2Eテスト", type: :system do
+  describe "view/homeのテスト" do
     let(:user) { create(:user) }
     let!(:nobel_book) { create(:book, title: "小説", user_id: user.id) }
     let!(:business_book) { create(:book, title: "ビジネス", user_id: user.id) }

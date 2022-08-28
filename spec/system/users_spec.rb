@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "UserのE2Eテスト", type: :system do
-  describe "ユーザーページのテスト" do
+  describe "view/usersのテスト" do
     let(:signup_user) { build(:user) }
     let(:user) { create(:user) }
     let!(:book) { create(:book, user_id: user.id) }
@@ -57,6 +57,14 @@ RSpec.describe "UserのE2Eテスト", type: :system do
           click_on book.title
         end
         expect(current_path).to eq(book_path(book.id))
+      end
+
+      it "ユーザー詳細画面でコメントの情報を表示すること" do
+        visit user_path(user.id)
+        within ".comment-container" do
+          expect(page).to have_content(book.title)
+          expect(page).to have_content(comment.comment)
+        end
       end
 
       it "ユーザー詳細画面のコメント編集のリンクが機能すること" do
