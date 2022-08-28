@@ -23,10 +23,45 @@
       </div>
     </div>
   </div>
-
-  <div class="my-5 border border-2 bg-light py-4">
-    <p>コメント一覧</p>
-    投稿者
-    コメント
+  <div class="comment-container w-75 mx-auto my-5 text-center border border-2 bg-light py-4">
+    <h3 class="my-5">コメント一覧(<%= @book.comments.size %>件)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th class="px-5 col-2">アイコン</th>
+          <th class="px-5 col-2">投稿者</th>
+          <th class="px-5 col-8">コメント</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @book_comments.each do |comment| %>
+        <tr>
+          <td class="py-2 px-5 col-2">
+            <% if comment.user.image.attached? %>
+              <%= image_tag comment.user.image, class: "rounded-circle" %>
+            <% else %>
+              <%= image_tag "noimage-user.jpg", class: "rounded-circle" %>
+            <% end %>
+          </td>
+          <td class="py-2 px-5 col-2"><%= comment.user.name %></td>
+          <td class="py-2 px-5 col-8"><%= comment.comment %><br></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% if user_signed_in? %>
+      <div class="form-container my-3 py-3">
+        <%= form_with(model: @comment, local: true, url: comments_path) do |form| %>
+          <%= render "shared/error_messages", model: form.object %>
+          <div class="text-area">
+            <%= form.label :comment, "コメント", class: "col-2 mb-4 text-area-label" %>
+            <%= form.text_area :comment, class: "col-4 mx-4 mb-4 text-area-input w-50" %><br>
+          </div>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+          <%= form.hidden_field :book_id, value: @book.id %>
+          <%= form.submit "投稿", class: "btn btn-success col-2 mb-4" %><br>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -3,6 +3,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @comment = Comment.new
+    @book_comments = @book.comments.includes([:user])
   end
 
   def new
@@ -23,6 +25,10 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    if @book.user_id != current_user.id
+      flash[:alert] = "本の登録ユーザーでないため、本を編集できません。"
+      redirect_to root_path
+    end
   end
 
   def update

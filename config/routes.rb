@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   get 'books/new'
   devise_for :users
   root :to => 'home#index'
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
       get "search"
     end
   end
+  resources :comments, :only => [:create, :edit, :update, :destroy]
 end

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def search
-    @results = @search.result
+    @results = @search.result.includes(:image_attachment)
   end
 
   private

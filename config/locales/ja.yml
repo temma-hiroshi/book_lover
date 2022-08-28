@@ -10,3 +10,5 @@ ja:
         title: タイトル
         author: 著者
         description: 説明文
+      comment:
+        comment: コメント
