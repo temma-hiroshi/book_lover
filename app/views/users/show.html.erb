@@ -12,7 +12,7 @@
 
   <div class="book-container bg-light border border-2 my-5 p-5">
     <h2>登録した本の一覧</h2>
-    <table class="user-book-table">
+    <table class="user-show-table">
       <thead>
         <tr>
           <th class="col-2">写真</th>
@@ -44,10 +44,37 @@
     </table>
   </div>
 
-  <div class="comment-container bg-light border border-2 my-5 py-4">
-  <h2>投稿したコメント一覧</h2><br>
-  本のタイトル<br>
-  コメント<br>
-  全体にリンク、本の<br>
+  <div class="bg-light border border-2 my-5 p-5">
+    <div class="bg-light my-5 py-4">
+      <h2>投稿したコメント一覧</h2><br>
+      <table class="user-show-table">
+        <thead>
+          <tr>
+            <th class="col-2">写真</th>
+            <th class="col-2">タイトル</th>
+            <th class="col-2">コメント</th>
+            <th class="col-1">編集</th>
+            <th class="col-1">削除</th><br>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.comments.each do |user_comment| %>
+            <tr>
+              <td>
+                <% if user_comment.book.image.attached? %>
+                  <%= link_to image_tag(user_comment.book.image, class: "p-3"), book_path(user_comment.book.id) %>
+                <% else %>
+                  <%= link_to image_tag("noimage-book.jpg", class: "p-3"), book_path(user_comment.book.id)%>
+                <% end %>
+              </td>
+              <td><%= link_to(user_comment.book.title, book_path(user_comment.book.id)) %></td>
+              <td><%= user_comment.comment %></td>
+              <td><%= link_to "編集", edit_book_path(user_comment.book.id) %></td>
+              <td><%= link_to "削除", book_path(user_comment.book.id), method: :delete, data: {confirm: "本当にコメントを削除してよろしいですか？" } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
