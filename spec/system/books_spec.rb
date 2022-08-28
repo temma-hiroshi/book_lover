@@ -36,49 +36,58 @@ RSpec.describe "BookのE2Eテスト", type: :system do
     end
 
     describe "編集ページのテスト" do
-      before do
-        sign_in user
+      it "ログインユーザーが本の登録ユーザーでない場合、アクセスに失敗すること" do
+        sign_in another_user
         visit edit_book_path(book.id)
+        expect(current_path).to eq root_path
+        expect(page).to have_content("本の登録ユーザーでないため、本を編集できません。")
       end
 
-      it "タイトル、著者、説明文を入力したとき、更新に成功すること" do
-        within ".form-container" do
-          fill_in "タイトル", with: "update_title"
-          fill_in "著者", with: "update_author"
-          fill_in "説明文", with: "update_description"
-          click_on '本の更新'
+      describe "編集ページの入力テスト" do
+        before do
+          sign_in user
+          visit edit_book_path(book.id)
         end
-        expect(page).to have_content("本の情報を更新しました。")
-      end
 
-      it "タイトルが未入力のとき、更新に失敗すること" do
-        within ".form-container" do
-          fill_in "タイトル", with: ""
-          fill_in "著者", with: "update_author"
-          fill_in "説明文", with: "update_description"
-          click_on '本の更新'
+        it "タイトル、著者、説明文を入力したとき、更新に成功すること" do
+          within ".form-container" do
+            fill_in "タイトル", with: "update_title"
+            fill_in "著者", with: "update_author"
+            fill_in "説明文", with: "update_description"
+            click_on '本の更新'
+          end
+          expect(page).to have_content("本の情報を更新しました。")
         end
-        expect(page).to have_content("本の情報を更新できませんでした。")
-      end
 
-      it "著者が未入力のとき、更新に失敗すること" do
-        within ".form-container" do
-          fill_in "タイトル", with: "update_title"
-          fill_in "著者", with: ""
-          fill_in "説明文", with: "update_description"
-          click_on '本の更新'
+        it "タイトルが未入力のとき、更新に失敗すること" do
+          within ".form-container" do
+            fill_in "タイトル", with: ""
+            fill_in "著者", with: "update_author"
+            fill_in "説明文", with: "update_description"
+            click_on '本の更新'
+          end
+          expect(page).to have_content("本の情報を更新できませんでした。")
         end
-        expect(page).to have_content("本の情報を更新できませんでした。")
-      end
 
-      it "説明文が未入力のとき、更新に失敗すること" do
-        within ".form-container" do
-          fill_in "タイトル", with: "update_title"
-          fill_in "著者", with: "update_author"
-          fill_in "説明文", with: ""
-          click_on '本の更新'
+        it "著者が未入力のとき、更新に失敗すること" do
+          within ".form-container" do
+            fill_in "タイトル", with: "update_title"
+            fill_in "著者", with: ""
+            fill_in "説明文", with: "update_description"
+            click_on '本の更新'
+          end
+          expect(page).to have_content("本の情報を更新できませんでした。")
         end
-        expect(page).to have_content("本の情報を更新できませんでした。")
+
+        it "説明文が未入力のとき、更新に失敗すること" do
+          within ".form-container" do
+            fill_in "タイトル", with: "update_title"
+            fill_in "著者", with: "update_author"
+            fill_in "説明文", with: ""
+            click_on '本の更新'
+          end
+          expect(page).to have_content("本の情報を更新できませんでした。")
+        end
       end
     end
 

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @books = @user.books.includes([:image_attachment])
-    @comments = @user.comments
+    @comments = @user.comments.includes(:book)
   end
 
   def edit

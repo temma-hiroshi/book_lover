@@ -20,7 +20,7 @@ RSpec.describe "Books", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it "本の編集画面でレスポンスを返答すること" do
+      it "ログインユーザーが登録者の場合、本の編集画面でレスポンスを返答すること" do
         get edit_book_path(book.id)
         expect(response).to have_http_status(200)
       end
