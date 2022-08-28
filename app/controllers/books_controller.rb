@@ -25,6 +25,10 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    if @book.user_id != current_user.id
+      flash[:alert] = "本の登録ユーザーでないため、コメントを編集できません。"
+      redirect_to root_path
+    end
   end
 
   def update

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit]
+
   def create
     @book = Book.find(comment_params[:book_id])
     @comment = Comment.new(comment_params)
@@ -12,6 +14,10 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    if @comment.user_id != current_user.id
+      flash[:alert] = "投稿者でないため、コメントを編集できません。"
+      redirect_to root_path
+    end
   end
 
   def update

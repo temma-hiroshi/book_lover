@@ -38,7 +38,7 @@
         <tr>
           <td class="py-2 px-5 col-2">
             <% if comment.user.image.attached? %>
-              <%= image_tag current_user.image, class: "rounded-circle" %>
+              <%= image_tag comment.user.image, class: "rounded-circle" %>
             <% else %>
               <%= image_tag "noimage-user.jpg", class: "rounded-circle" %>
             <% end %>
