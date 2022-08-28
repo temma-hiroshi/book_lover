@@ -5,6 +5,7 @@ RSpec.describe "UserのE2Eテスト", type: :system do
     let(:signup_user) { build(:user) }
     let(:user) { create(:user) }
     let!(:book) { create(:book, user_id: user.id) }
+    let!(:comment) { create(:comment, user_id: user.id, book_id: book.id) }
 
     it "新規登録を実行すること" do
       visit new_user_registration_path
@@ -56,6 +57,14 @@ RSpec.describe "UserのE2Eテスト", type: :system do
           click_on book.title
         end
         expect(current_path).to eq(book_path(book.id))
+      end
+
+      it "ユーザー詳細画面のコメント編集のリンクが機能すること" do
+        visit user_path(user.id)
+        within ".comment-container" do
+          click_on "編集"
+        end
+        expect(current_path).to eq(edit_comment_path(comment.id))
       end
     end
   end

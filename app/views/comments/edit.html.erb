@@ -1,0 +1,20 @@
+<div class="container edit-container text-center mt-5 bg-light border border-2">
+  <h2 class="pt-5">コメントの編集</h2>
+  <div class="form-container mb-5 pb-5">
+    <%= form_with(model: @comment, local: true) do |form| %>
+      <%= render "shared/error_messages", model: form.object %>
+
+      <div class="text-area">
+        <%= form.label :comment, "コメント", class: "col-1 mb-4 text-area-label" %>
+        <%= form.text_area :comment, class: "col-3 mb-4 text-area-input" %><br>
+      </div>
+
+      <%= form.hidden_field :user_id, value: @comment.user_id %>
+      <%= form.hidden_field :book_id, value: @comment.book_id %>
+
+      <%= form.submit "コメントの更新", class: "btn btn-success col-2 mb-4" %><br>
+    <% end %>
+    <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary col-2" %>
+  </div>
+</div>
+

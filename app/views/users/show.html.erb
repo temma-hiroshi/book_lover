@@ -44,7 +44,7 @@
     </table>
   </div>
 
-  <div class="bg-light border border-2 my-5 p-5">
+  <div class="comment-container bg-light border border-2 my-5 p-5">
     <div class="bg-light my-5 py-4">
       <h2>投稿したコメント一覧</h2><br>
       <table class="user-show-table">
@@ -69,7 +69,7 @@
               </td>
               <td><%= link_to(user_comment.book.title, book_path(user_comment.book.id)) %></td>
               <td><%= user_comment.comment %></td>
-              <td><%= link_to "編集", edit_book_path(user_comment.book.id) %></td>
+              <td><%= link_to "編集", edit_comment_path(user_comment.id) %></td>
               <td><%= link_to "削除", comment_path(user_comment.id), method: :delete, data: {confirm: "本当にコメントを削除してよろしいですか？" } %></td>
             </tr>
           <% end %>

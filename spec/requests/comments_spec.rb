@@ -6,6 +6,11 @@ RSpec.describe "Comments", type: :request do
     let!(:book) { create(:book, user_id: user.id) }
     let!(:comment) { create(:comment, user_id: user.id, book_id: book.id) }
 
+    it "コメントの編集画面でレスポンスを返答すること" do
+      get edit_comment_path(comment.id)
+      expect(response).to have_http_status(200)
+    end
+
     it "コメントを削除すること" do
       expect { comment.destroy }.to change { Comment.count }.from(1).to(0)
     end
@@ -19,5 +24,3 @@ RSpec.describe "Comments", type: :request do
     end
   end
 end
-
-# editのビューをリクエストしたら成功すること

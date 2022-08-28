@@ -11,9 +11,18 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      flash[:notice] = "コメントを更新しました。"
+      redirect_to book_path(@comment.book.id)
+    else
+      flash.now[:alert] = "コメントを更新できませんでした。"
+      render :edit
+    end
   end
 
   def destroy

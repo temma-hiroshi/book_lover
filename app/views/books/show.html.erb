@@ -50,18 +50,19 @@
       </tbody>
     </table>
 
-    <div class="form-container my-3 py-3">
-      <%= form_with(model: @comment, local: true, url: comments_path) do |form| %>
-        <%= render "shared/error_messages", model: form.object %>
-        <div class="text-area">
-          <%= form.label :comment, "コメント", class: "col-2 mb-4 text-area-label" %>
-          <%= form.text_area :comment, class: "col-4 mx-4 mb-4 text-area-input w-50" %><br>
-        </div>
-
-        <%= form.hidden_field :user_id, value: current_user.id %>
-        <%= form.hidden_field :book_id, value: @book.id %>
-        <%= form.submit "投稿", class: "btn btn-success col-2 mb-4" %><br>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="form-container my-3 py-3">
+        <%= form_with(model: @comment, local: true, url: comments_path) do |form| %>
+          <%= render "shared/error_messages", model: form.object %>
+          <div class="text-area">
+            <%= form.label :comment, "コメント", class: "col-2 mb-4 text-area-label" %>
+            <%= form.text_area :comment, class: "col-4 mx-4 mb-4 text-area-input w-50" %><br>
+          </div>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+          <%= form.hidden_field :book_id, value: @book.id %>
+          <%= form.submit "投稿", class: "btn btn-success col-2 mb-4" %><br>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
