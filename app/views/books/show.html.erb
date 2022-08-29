@@ -1,3 +1,4 @@
+
 <div class="container my-5">
   <div class="my-5 border border-2 bg-light py-4">
     <h2 class="mt-4 text-center">本の情報</h2>
@@ -16,6 +17,7 @@
           <h4>本の登録者</h4>
           <p class="book-user"><%= @book.user.name %></p>
         </div>
+        <p>楽天リンク：<%= link_to @rakuten_books.first.title, @rakuten_books.first.item_url %></p>
         <% if user_signed_in? && @book.user_id == current_user.id %>
           <%= link_to "編集", edit_book_path(@book.id), class: "btn btn-primary my-3 col-5" %><br>
         <% end %>
