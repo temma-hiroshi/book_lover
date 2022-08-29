@@ -2,6 +2,7 @@
 Bookloverは好きな本を共有できるサイトです。  
 ユーザー登録すれば、自分の好きな本を登録することができます。  
 他のユーザーが登録した本は誰でも見ることができます。  
+![ホームページ](https://github.com/temma-hiroshi/book_lover/blob/develop_rakuten/app/assets/images/BookLover_toppage.png)
 
 # URL  
 https://portfolio-temma.herokuapp.com/  
@@ -18,8 +19,9 @@ https://portfolio-temma.herokuapp.com/
 - Rubocop
 
 # ER図
+![ER図](https://github.com/temma-hiroshi/book_lover/blob/develop_rakuten/app/assets/images/ERD(BookLover).png)  
 
-# CirCleCI  
+# CircleCI  
 Githubへのpush時に、RubocopとRSpecが自動で実行され、どちらも成功した場合、herokuへ自動デプロイが実行されます。  
 
 # 機能一覧
