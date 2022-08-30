@@ -44,3 +44,9 @@ footer{
   color: #000000;
   font-size: 24px;
 }
+
+@media screen and (max-width: 576px){
+  .xs-1rem{
+    font-size: 1rem;
+  }
+}
