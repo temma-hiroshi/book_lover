@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-  get 'books/new'
   devise_for :users
   root :to => 'home#index'
   get 'home/index'
