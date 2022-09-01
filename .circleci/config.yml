@@ -12,6 +12,8 @@ jobs:
           name: Setup environment variable
           command: |
             echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
+            echo RWS_APPLICATION_ID=${RWS_APPLICATION_ID} > ~/.env
+            echo RWS_AFFILIATION_ID=${RWS_AFFILIATION_ID} > ~/.env
       - run:
           name: Start containers and verify it is working
           command: |
