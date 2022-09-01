@@ -49,4 +49,13 @@ footer{
   .xs-1rem{
     font-size: 1rem;
   }
+  .xs-d-none{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .sm-d-none{
+    display: none;
+  }
 }

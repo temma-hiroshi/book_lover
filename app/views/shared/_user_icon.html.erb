@@ -1,5 +1,5 @@
 <% if current_user.image.attached? %>
-  <%= image_tag current_user.image, class: "rounded-circle" %>
+  <%= image_tag current_user.image, class: "rounded-circle img-fluid" %>
 <% else %>
-  <%= image_tag "noimage-user.jpg", class: "rounded-circle" %>
+  <%= image_tag "noimage-user.jpg", class: "rounded-circle img-fluid" %>
 <% end %>
