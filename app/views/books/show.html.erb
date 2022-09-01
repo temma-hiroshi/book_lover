@@ -1,69 +1,60 @@
-
 <div class="container my-5">
-  <div class="my-5 border border-2 bg-light py-4">
-    <h2 class="mt-4 text-center">本の情報</h2>
-    <div class="d-flex">
-      <%= render "shared/book_icon" %>
-      <div class="col-4 my-5">
-        <div class="mb-5 py-3 px-5 border border-1 bg-white">
-          <h3>タイトル</h3>
-          <p class="book-element"><%= @book.title %></p>
-          <h3>著者</h3>
-          <p class="book-element"><%= @book.author %></p>
-          <h3>説明文</h3>
-          <p class="book-element"><%= @book.description %></p>
-        </div>
-        <div class="mb-5 py-3 px-5 border border-1 bg-white">
-          <h4>本の登録者</h4>
-          <p class="book-user"><%= @book.user.name %></p>
-        </div>
-        <% if @rakuten_books.first %>
-          <p>楽天リンク：<%= link_to @rakuten_books.first.title, @rakuten_books.first.item_url %></p>
-        <% end %>
-        <% if user_signed_in? && @book.user_id == current_user.id %>
-          <%= link_to "編集", edit_book_path(@book.id), class: "btn btn-primary my-3 col-5" %><br>
-        <% end %>
-        <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary my-3 col-5" %>
+  <div class="book-show-container text-center my-5 border border-2 bg-light py-4">
+    <h2 class="my-4 text-center">本の情報</h2>
+    <%= render "shared/book_icon" %>
+    <div class="my-5">
+      <div class="m-md-5 py-3 px-md-5 border border-1 bg-white">
+        <h3>タイトル</h3>
+        <p class="text-break pb-4"><%= @book.title %></p>
+        <h3>著者</h3>
+        <p class="text-break pb-4"><%= @book.author %></p>
+        <h3>説明文</h3>
+        <p class="text-break pb-4"><%= @book.description %></p>
       </div>
+      <div class="my-5 m-md-5 py-3 px-md-5 border border-1 bg-white">
+        <h4>本の登録者</h4>
+        <p class="text-break"><%= @book.user.name %></p>
+      </div>
+      <% if @rakuten_books.first && @rakuten_books.first.title == @book.title %>
+        <p class="mt-4">楽天リンク：<%= link_to @rakuten_books.first.title, @rakuten_books.first.item_url %></p>
+      <% end %>
+      <% if user_signed_in? && @book.user_id == current_user.id %>
+        <%= link_to "編集", edit_book_path(@book.id), class: "btn btn-primary col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 my-4" %><br>
+      <% end %>
+      <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 my-4" %>
     </div>
   </div>
-  <div class="comment-container w-75 mx-auto my-5 text-center border border-2 bg-light py-4">
+  <div class="comment-container w-100 mx-auto my-5 text-center border border-2 bg-light p-4">
     <h3 class="my-5">コメント一覧(<%= @book.comments.size %>件)</h3>
-    <table>
-      <thead>
-        <tr>
-          <th class="px-5 col-2">アイコン</th>
-          <th class="px-5 col-2">投稿者</th>
-          <th class="px-5 col-8">コメント</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @book_comments.each do |comment| %>
-        <tr>
-          <td class="py-2 px-5 col-2">
-            <% if comment.user.image.attached? %>
-              <%= image_tag comment.user.image, class: "rounded-circle" %>
-            <% else %>
-              <%= image_tag "noimage-user.jpg", class: "rounded-circle" %>
-            <% end %>
-          </td>
-          <td class="py-2 px-5 col-2"><%= comment.user.name %></td>
-          <td class="py-2 px-5 col-8"><%= comment.comment %><br></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <% if @book.comments.size != 0 %>
+      <table class="mx-auto">
+        <thead>
+          <tr>
+            <th class="col-4">投稿者</th>
+            <th class="col-8">コメント</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @book_comments.each do |comment| %>
+          <tr>
+            <td class="col-4 text-break"><%= comment.user.name %></td>
+            <td class="col-8 text-break"><%= comment.comment %><br></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
     <% if user_signed_in? %>
       <div class="form-container my-3 py-3">
         <%= form_with(model: @comment, local: true, url: comments_path) do |form| %>
           <%= render "shared/error_messages", model: form.object %>
           <div class="text-area">
-            <%= form.label :comment, "コメント", class: "col-2 mb-4 text-area-label" %>
-            <%= form.text_area :comment, class: "col-4 mx-4 mb-4 text-area-input w-50" %><br>
+            <%= form.label :comment, "コメント", class: "mb-4" %><br>
+            <%= form.text_area :comment, class: "col-12 col-sm-9 col-lg-6 h-150px" %><br>
           </div>
           <%= form.hidden_field :user_id, value: current_user.id %>
           <%= form.hidden_field :book_id, value: @book.id %>
-          <%= form.submit "投稿", class: "btn btn-success col-2 mb-4" %><br>
+          <%= form.submit "投稿", class: "btn btn-success col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 mt-4" %><br>
         <% end %>
       </div>
     <% end %>

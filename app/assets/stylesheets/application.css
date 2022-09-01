@@ -45,6 +45,10 @@ footer{
   font-size: 24px;
 }
 
+.h-150px{
+  height: 150px;
+}
+
 @media screen and (max-width: 576px){
   .xs-1rem{
     font-size: 1rem;
