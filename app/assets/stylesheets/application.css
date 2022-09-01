@@ -49,17 +49,36 @@ footer{
   height: 150px;
 }
 
-@media screen and (max-width: 576px){
-  .xs-1rem{
-    font-size: 1rem;
+.bg-green{
+  background-color: #8fbc8f;
+}
+.font-bold{
+  font-weight: bold;
+}
+
+@media screen and (max-width: 575px){
+  .xs-16px{
+    font-size: 16px;
   }
   .xs-d-none{
     display: none;
   }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (min-width: 576px) and (max-width: 767px){
   .sm-d-none{
     display: none;
+  }
+  .sm-24px{
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .md-32px{
+    font-size: 32px;
+  }
+  .md-24px{
+    font-size: 24px;
   }
 }

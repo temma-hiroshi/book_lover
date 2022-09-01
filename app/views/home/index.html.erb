@@ -1,34 +1,34 @@
 <div class="container">
-  <div class="main-content">
-    <%= image_tag "main-image.jpg", class: "main-image" %>
-    <span class="main-image-word">あなたの好きを、誰かの好きに。</span>
+  <div class="position-relative">
+    <%= image_tag "main-image.jpg", class: "mt-5 w-100" %>
+    <span class="position-absolute main-word-position text-white font-bold xs-16px sm-24px md-32px">あなたの好きを、誰かの好きに。</span>
   </div>
-  <div class="about">
-    <h2 class="about-title">BookLoverとは?</h2>
-    <p class="about-description">
+  <div class="mt-5 py-4 bg-green">
+    <h2 class="md-32px text-center mb-2">BookLoverとは?</h2>
+    <p class="md-24px lh-lg text-start py-sm-2 px-2 px-sm-4">
     BookLoverは好きな本を共有できるサイトです。「自分の好きな本を伝えたい」「他の人がどんな本を好きなのか知りたい」という
     想いを実現するため作成しました。<br>
     あなたも好きな本を登録してみませんか。
     </p>
   </div>
-   <div class="recommend">
-    <h2 class="recommend-title">おすすめジャンル</h2>
-    <div class="recommend-item-list">
-      <div class="recommend-item col-12 col-lg-5">
-        <%= link_to (image_tag "recommend-nobel.jpg", alt: "小説"), search_books_path(q: {title_or_author_or_description_cont: "小説"}) %>
-        <span>小説</span>
+   <div class="text-center mt-5">
+    <h2 class="mt-5 mb-3 font-bold">おすすめジャンル</h2>
+    <div class="d-flex flex-wrap">
+      <div class="position-relative my-3 px-lg-3 mx-auto col-9 col-lg-6">
+        <%= link_to (image_tag "recommend-nobel.jpg", alt: "小説", class: "w-100"), search_books_path(q: {title_or_author_or_description_cont: "小説"}) %>
+        <span class="position-absolute recommend-position bg-dark text-white md-24px">小説</span>
       </div>
-      <div class="recommend-item col-12 col-lg-5">
-        <%= link_to (image_tag "recommend-business.jpg", alt: "ビジネス"), search_books_path(q: {title_or_author_or_description_cont: "ビジネス"}) %>
-        <span>ビジネス</span>
+      <div class="position-relative my-3 px-lg-3 mx-auto col-9 col-lg-6">
+        <%= link_to (image_tag "recommend-business.jpg", alt: "ビジネス", class: "w-100"), search_books_path(q: {title_or_author_or_description_cont: "ビジネス"}) %>
+        <span class="position-absolute recommend-position bg-dark text-white md-24px">ビジネス</span>
       </div>
-      <div class="recommend-item col-12 col-lg-5">
-        <%= link_to (image_tag "recommend-health.jpg", alt: "健康"), search_books_path(q: {title_or_author_or_description_cont: "健康"}) %>
-        <span>健康</span>
+      <div class="position-relative my-3 px-lg-3 mx-auto col-9 col-lg-6">
+        <%= link_to (image_tag "recommend-health.jpg", alt: "健康", class: "w-100"), search_books_path(q: {title_or_author_or_description_cont: "健康"}) %>
+        <span class="position-absolute recommend-position bg-dark text-white md-24px">健康</span>
       </div>
-      <div class="recommend-item col-12 col-lg-5">
-        <%= link_to (image_tag "recommend-money.jpg", alt: "お金"), search_books_path(q: {title_or_author_or_description_cont: "お金"}) %>
-        <span>お金</span>
+      <div class="position-relative my-3 px-lg-3 mx-auto col-9 col-lg-6">
+        <%= link_to (image_tag "recommend-money.jpg", alt: "お金", class: "w-100"), search_books_path(q: {title_or_author_or_description_cont: "お金"}) %>
+        <span class="position-absolute recommend-position bg-dark text-white md-24px">お金</span>
       </div>
     </div>
   </div>
