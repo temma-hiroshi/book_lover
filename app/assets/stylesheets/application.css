@@ -13,42 +13,25 @@
  *= require_tree .
  *= require_self
  */
+ .navbar img{
+  width: 100px;
+  height: auto;
+ }
 
-header{
-  width: 100%;
-  height:100px;
-  margin: 10px;
-  display: flex;
-  justify-content: space-between;
+.h-100px{
+  height: 100px;
 }
-header img{
-  margin-top: 5px;
-  height: 90px;
-  width: 90px;
-}
-
-.search-book{
-  margin: 35px 20px;
-  height: 30px
+.h-150px{
+  height: 150px;
 }
 footer{
-  margin-top: 30px;
   background-color: #f5f5dc;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .footerlogo{
   text-decoration: none;
   color: #000000;
   font-size: 24px;
 }
-
-.h-150px{
-  height: 150px;
-}
-
 .bg-green{
   background-color: #8fbc8f;
 }
