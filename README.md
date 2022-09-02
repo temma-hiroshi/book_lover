@@ -2,11 +2,16 @@
 Bookloverは好きな本を共有できるサイトです。  
 ユーザー登録すれば、自分の好きな本を登録することができます。  
 他のユーザーが登録した本は誰でも見ることができます。  
-![ホームページ](https://github.com/temma-hiroshi/book_lover/blob/develop_rakuten/app/assets/images/BookLover_toppage.png)
+![ホームページ](https://github.com/temma-hiroshi/book_lover/blob/develop_rakuten/app/assets/images/toppage.png)  
+ホーム画面下部の画像をクリックすると、おすすめのジャンルを検索できます。
+![おすすめ](https://github.com/temma-hiroshi/book_lover/blob/develop_rakuten/app/assets/images/recommend.png)  
+本の詳細画面では、他の方の感想をみることができます。  
+![本の詳細](https://github.com/temma-hiroshi/book_lover/blob/develop_rakuten/app/assets/images/book_show.png) 
+
 
 # URL  
 https://portfolio-temma.herokuapp.com/  
-ゲストログインボタンから、名前、メールアドレス、パスワードを入力せずにログインできます。  
+画面上部のハンバーガーメニューを開き、ゲストログインボタンを押すと、名前、メールアドレス、パスワードを入力せずにログインできます。  
 
 # 使用技術
 - Ruby
