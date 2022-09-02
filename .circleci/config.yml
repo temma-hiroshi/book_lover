@@ -13,6 +13,10 @@ jobs:
           command: |
             echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
       - run:
+          name: Setup env file
+          command: |
+            echo ${ENV} > ~/.env
+      - run:
           name: Start containers and verify it is working
           command: |
             set -x
