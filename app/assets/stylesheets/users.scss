@@ -2,15 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.input-label{
-  font-size: 20px;
-}
 #error_explanation li{
     list-style: none;
 }
 .user-container img{
-  width: 200px;
-  height: 200px;
+  height: auto;
 }
 .user-show-table{
   width: 100%;
@@ -24,7 +20,7 @@
     th, tr, td{
       border: 1px #000000 solid;
       img{
-        width: 200px;
+        height: auto;
         }
     }
   }

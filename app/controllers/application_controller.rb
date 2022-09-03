@@ -6,6 +6,15 @@ class ApplicationController < ActionController::Base
     @results = @search.result.includes(:image_attachment)
   end
 
+  def guest_sign_in
+    user = User.find_or_create_by!(name: "guestuser", email: "guestuser@example.com") do |u|
+      u.password = "hogehoge"
+    end
+    sign_in user
+    flash[:notice] = "ゲストユーザーとしてログインしました。"
+    redirect_to root_path
+  end
+
   private
 
   def set_search

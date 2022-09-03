@@ -2,24 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-.text-area{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.text-area-input{
-  height: 150px;
-}
-.book-element{
-  font-size: 24px;
-}
-.book-user{
-  font-size: 20px;
+.book-show-container img{
+  height: auto;
+  max-height: 400px;
 }
 .edit-container img{
-  width: 400px;
   height: auto;
+  max-height: 400px;
 }
 .search-book-table{
   width: 100%;

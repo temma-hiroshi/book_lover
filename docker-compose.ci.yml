@@ -7,6 +7,8 @@ services:
       - 3000:3000
     depends_on:
       - db
+    environment:
+      RWS_APPLICATION_ID: $RWS_APPLICATION_ID
   db:
     image: mysql:5.7
     environment:

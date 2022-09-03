@@ -30,6 +30,13 @@ RSpec.describe "UserのE2Eテスト", type: :system do
       expect(page).to have_content("ログインしました。")
     end
 
+    it "ゲストユーザーのログインに成功すること" do
+      visit root_path
+      click_on 'ゲストログイン'
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("ゲストユーザーとしてログインしました。")
+    end
+
     describe "ログイン後のテスト" do
       before do
         sign_in user

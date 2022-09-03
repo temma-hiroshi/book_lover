@@ -9,14 +9,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
-      <%= render 'shared/header_left' %>
-      <%= render 'shared/header_right' %>
+    <header class="d-block w-100">
+      <%= render 'shared/navbar' %>
     </header>
     <%= render 'shared/notice_alert' %>
     <%= yield %>
-    <footer>
+    <footer class="mt-5 h-100px d-flex justify-content-center align-items-center">
       <%= link_to "BookLover", home_index_path, class: "footerlogo" %>
     </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -2,64 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.main-content{
-  position: relative;
-  text-align: center;
+.mw-1000px{
+  max-width: 1000px;
 }
-.main-image{
-  margin-top: 50px;
-  width: 100%;
-}
-.main-image-word{
-  position: absolute;
-  top: 20%;
+.main-word-position{
+  top: 40%;
   left: 25%;
-  font-size: 45px;
-  color: #ffffff;
-  font-weight: bold;
 }
-.about{
-  margin-top:80px;
-  text-align: center;
-  background-color: #8fbc8f;
-  padding: 20px;
-}
-.about-title{
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-.about-description{
-  font-size: 28px;
-  padding: 20px 50px;
-  text-align: start;
-  line-height: 2;
-}
-.recommend{
-  margin-top:30px;
-  text-align: center;
-}
-.recommend-title{
-  margin-top: 60px;
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-.recommend-item-list{
-  display: flex;
-  flex-wrap: wrap;
-}
-.recommend-item{
-  margin: 15px 25px;
-  position: relative;
-  img{
-    width: 100%;
-  }
-  span{
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    color: #000000;
-    font-weight: bold;
-    font-size: 28px;
-    background-color: #ffffff;
-  }
+.recommend-position{
+  top: 75%;
+  left: 50%;
 }

@@ -1,5 +1,5 @@
 <% if @book.image.attached? %>
-  <%= image_tag @book.image, class: "col-6 m-5" %>
+  <%= image_tag @book.image, class: "img-fluid" %>
 <% else %>
-  <%= image_tag "noimage-book.jpg", class: "col-6 m-5" %>
+  <%= image_tag "noimage-book.jpg", class: "img-fluid" %>
 <% end %>

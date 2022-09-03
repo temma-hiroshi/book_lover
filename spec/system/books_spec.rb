@@ -102,7 +102,6 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(current_path).to eq search_books_path
         expect(page).to have_content(book.title)
         expect(page).to have_content(book.author)
-        expect(page).to have_content(book.description)
       end
 
       it "検索ワードに著者を含むとき、本の情報を表示すること" do
@@ -111,7 +110,6 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(current_path).to eq search_books_path
         expect(page).to have_content(book.title)
         expect(page).to have_content(book.author)
-        expect(page).to have_content(book.description)
       end
 
       it "検索ワードに説明文を含むとき、本の情報を表示すること" do
@@ -120,7 +118,6 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(current_path).to eq search_books_path
         expect(page).to have_content(book.title)
         expect(page).to have_content(book.author)
-        expect(page).to have_content(book.description)
       end
 
       it "検索ワードにタイトル、著者、説明文を含まないとき、本の情報を表示しないこと" do
@@ -129,7 +126,6 @@ RSpec.describe "BookのE2Eテスト", type: :system do
         expect(current_path).to eq search_books_path
         expect(page).not_to have_content(book.title)
         expect(page).not_to have_content(book.author)
-        expect(page).not_to have_content(book.description)
       end
     end
   end

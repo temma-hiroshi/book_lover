@@ -4,24 +4,22 @@
     <%= form_with(model: @book, local: true) do |form| %>
       <%= render "shared/error_messages", model: form.object %>
 
-      <%= form.label :title, "タイトル", class: "col-1 mt-5 mb-4" %>
-      <%= form.text_field :title, class: "col-3 mt-5 mb-4" %><br>
+      <%= form.label :title, "タイトル", class: "mt-3 mb-2" %><br>
+      <%= form.text_field :title, class: "col-8 col-sm-6 col-md-5 col-lg-4 col-xl-3 mb-2" %><br>
 
-      <%= form.label :author, "著者", class: "col-1 mb-4" %>
-      <%= form.text_field :author, class: "col-3 mb-4" %><br>
+      <%= form.label :author, "著者", class: "mt-3 mb-2" %><br>
+      <%= form.text_field :author, class: "col-8 col-sm-6 col-md-5 col-lg-4 col-xl-3 mb-2" %><br>
 
-      <div class="text-area">
-        <%= form.label :description, "説明文", class: "col-1 mb-4 text-area-label" %>
-        <%= form.text_area :description, class: "col-3 mb-4 text-area-input" %><br>
-      </div>
+      <%= form.label :description, "説明文", class: "mt-3 mb-2" %><br>
+      <%= form.text_area :description, class: "col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 mb-2" %><br>
 
-      <%= form.label :image, "画像", class: "col-1 mb-4" %>
-      <%= form.file_field :image, class: "col-3 mb-4" %><br>
+      <%= form.label :image, "画像", class: "mt-3 mb-2" %><br>
+      <%= form.file_field :image, class: "col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 mb-2" %><br>
 
       <%= form.hidden_field :user_id, value: current_user.id %>
 
-      <%= form.submit "本の登録", class: "btn btn-success col-2 mb-4" %><br>
+      <%= form.submit "本の登録", class: "btn btn-success col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 mt-5" %><br>
     <% end %>
-    <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary col-2" %>
+    <%= link_to "トップページに戻る", home_index_path, class: "btn btn-secondary col-6 col-sm-5 col-md-4 col-lg-3 col-xl-2 mt-5" %>
   </div>
 </div>

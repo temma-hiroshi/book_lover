@@ -33,6 +33,9 @@ gem 'mini_magick'
 gem 'rails-i18n'
 gem 'aws-sdk-s3'
 gem 'ransack'
+gem 'rakuten_web_service'
+gem 'dotenv-rails'
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,6 +57,7 @@ group :development do
   gem 'spring'
   gem 'rubocop-discourse'
   gem 'rubocop-airbnb'
+  gem 'rails-erd'
 end
 
 group :test do

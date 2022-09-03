@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @rakuten_books = RakutenWebService::Books::Book.search(title: @book.title)
     @comment = Comment.new
     @book_comments = @book.comments.includes([:user])
   end
@@ -51,6 +52,12 @@ class BooksController < ApplicationController
     else
       flash[:alert] = "本を削除できませんでした。"
       redirect_to user_path(@user.id)
+    end
+  end
+
+  def rakuten_search
+    if params[:keyword]
+      @books = RakutenWebService::Books::Book.search(title: params[:keyword])
     end
   end
 
